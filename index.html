@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .code{
+            background-color:grey;
+            color: white;
+            /* text-align:center; */
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="offset-2 col-8">
+        <p><h4 style="color:yellow; background:black; text-align:center;">
+            Blog on Difference between HTTP1.1 vs HTTP2
+        </h4>
+        <button onclick="task1()">click here to view the difference between HTTP1.1 and HTTP2</button>
+        </p>
+        <div id="task1" style="display:none;">
+            <p>
+                HTTP stands for hypertext transfer protocol, and it is the basis for almost all web applications. More specifically, HTTP is the method computers and servers use to request and send information. For instance, when someone navigates to cloudflare.com on their laptop, their web browser sends an HTTP request to the Cloudflare servers for the content that appears on the page. Then, Cloudflare servers send HTTP responses with the text, images, and formatting that the browser displays to the user.
+    
+            </p>
+            <p>
+                The first usable version of HTTP was created in 1997. Because it went through several stages of development, this first version of HTTP was called HTTP/1.1. This version is still in use on the web. In 2015, a new version of HTTP called HTTP/2 was created.
+            </p>
+            <p>
+                HTTP/2 solves several problems that the creators of HTTP/1.1 did not anticipate. In particular, HTTP/2 is much faster and more efficient than HTTP/1.1. One of the ways in which HTTP/2 is faster is in how it prioritizes content during the loading process.
+            </p>
+            <h5>What is prioritization?</h5>
+            <p>
+                Prioritization affects a webpage's load time. For example, certain resources, like large JavaScript files, may block the rest of the page from loading if they have to load first. More of the page can load at once if these render-blocking resources load last.
+            </p>
+            <p>
+                In addition, the order in which these page resources load affects how the user perceives page load time. If only behind-the-scenes content (like a CSS file) or content the user can't see immediately (like banner ads at the bottom of the page) loads first, the user will think the page is not loading at all. If the content that's most important to the user loads first, such as the image at the top of the page, then the user will perceive the page as loading faster.
+            </p>
+            <h4>How does prioritization in HTTP/2 affect performance?</h4>
+            <p>
+                In HTTP/2, developers have hands-on, detailed control over prioritization. This allows them to maximize perceived and actual page load speed to a degree that was not possible in HTTP/1.1.
+    
+                HTTP/2 offers a feature called weighted prioritization. This allows developers to decide which page resources will load first, every time. In HTTP/2, when a client makes a request for a webpage, the server sends several streams of data to the client at once, instead of sending one thing after another. This method of data delivery is known as multiplexing. Developers can assign each of these data streams a different weighted value, and the value tells the client which data stream to render first.
+    
+                Imagine that Alice wants to read a novel that her friend Bob wrote, but both Alice and Bob only communicate through the regular mail. Alice sends a letter to Bob and asks Bob to send her his novel. Bob decides to send the novel HTTP/1.1-style: He mails one chapter at a time, and he only mails the next chapter after receiving a reply letter from Alice confirming that she received the previous chapter. Using this method of content delivery, it takes Alice many weeks to read Bob's novel.
+    
+                Now imagine that Bob decides to send Alice his novel HTTP/2-style: In this case, he sends each chapter of the novel separately (to stay within the postal service's size limits) but all at the same time. He also numbers each chapter: Chapter 1, Chapter 2, etc. Now, Alice receives the novel all at once and can assemble it in the correct order on her own time. If a chapter is missing, she may send a quick reply asking for that specific chapter, but otherwise the process is complete, and Alice can read the novel in just a few days.
+    
+                In HTTP/2, data is sent all at once, much like Bob when he sends Alice multiple chapters at once. And just like Bob, developers get to number the chapters in HTTP/2. They can decide if the text of a webpage loads first, or the CSS files, or the JavaScript, or whatever they feel is most important for the user experience.
+            </p>
+            <h4>
+                What are the other differences between HTTP/2 and HTTP/1.1 that impact performance?
+            </h4>
+            <p>
+                <b style="display:block">Multiplexing:</b> HTTP/1.1 loads resources one after the other, so if one resource cannot be loaded, it blocks all the other resources behind it. In contrast, HTTP/2 is able to use a single TCP connection to send multiple streams of data at once so that no one resource blocks any other resource. HTTP/2 does this by splitting data into binary-code messages and numbering these messages so that the client knows which stream each binary message belongs to.
+    
+                <b style="display:block">Server push:</b> Typically, a server only serves content to a client device if the client asks for it. However, this approach is not always practical for modern webpages, which often involve several dozen separate resources that the client must request. HTTP/2 solves this problem by allowing a server to "push" content to a client before the client asks for it. The server also sends a message letting the client know what pushed content to expect – like if Bob had sent Alice a Table of Contents of his novel before sending the whole thing.
+    
+                <b style="display:block">Header compression:</b> Small files load more quickly than large ones. To speed up web performance, both HTTP/1.1 and HTTP/2 compress HTTP messages to make them smaller. However, HTTP/2 uses a more advanced compression method called HPACK that eliminates redundant information in HTTP header packets. This eliminates a few bytes from every HTTP packet. Given the volume of HTTP packets involved in loading even a single webpage, those bytes add up quickly, resulting in faster loading.
+            </p>
+    
+        </div>
+        <p><h4 style="color:yellow; background:black; text-align:center;">
+            Blog on objects and their internal representation
+        </h4>
+        <button onclick="task2()">click here to understand about the Object and It's Internal representaion </button>
+        </p>
+        <div id="task2" style="display:none;">
+            <h3><b>OBJECTS</b></h3>
+            <p>
+                Objects, in JavaScript, is it’s most important data-type and forms the building blocks for modern JavaScript. These objects are quite different from JavaScript’s primitive data-types(Number, String, Boolean, null, undefined and symbol) in the sense that while these primitive data-types all store a single value each (depending on their types).
+
+                Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types.
+                An object, is a reference data type. Variables that are assigned a reference value are given a reference or a pointer to that value. That reference or pointer points to the location in memory where the object is stored. The variables don’t actually store the value.
+
+                Loosely speaking, objects in JavaScript may be defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs. These keys can be variables or functions and are called properties and methods, respectively, in the context of an object.
+
+                For Eg. If your object is a student, it will have properties like name, age, address, id, etc and methods like <sub>updateAddress</sub>, <sub>updateNam</sub>, etc.
+
+                <h4>Objects and properties</h4>
+
+                A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
+            </p>
+            
+            <p class="code">
+                objectName.propertyName
+            </p>
+            <p>
+                Like all JavaScript variables, both the object name (which could be a normal variable) and property name are case sensitive. You can define a property by assigning it a value. For example, let’s create an object named myCar and give it properties named make, model, and year as follows:
+            </p>
+            <section class="code">
+                var myCar = new Object();<br>
+                myCar.make = 'Ford';<br>
+                myCar.model = 'Mustang';<br>
+                myCar.year = 1969;
+            </section>
+            <p>
+                Unassigned properties of an object are undefined (and not null).
+            </p>
+            <section class="code">myCar.color; // undefined</section>
+            <p>Properties of JavaScript objects can also be accessed or set using a bracket notation (for more details see property accessors). Objects are sometimes called associative arrays, since each property is associated with a string value that can be used to access it. So, for example, you could access the properties of the myCar object as follows:</p>
+            <section class="code">
+                myCar['make'] = 'Ford';<br>
+                myCar['model'] = 'Mustang';<br>
+                myCar['year'] = 1969;
+            </section>
+            <p>
+                An object property name can be any valid JavaScript string, or anything that can be converted to a string, including the empty string. However, any property name that is not a valid JavaScript identifier (for example, a property name that has a space or a hyphen, or that starts with a number) can only be accessed using the square bracket notation. This notation is also very useful when property names are to be dynamically determined (when the property name is not determined until runtime). Examples are as follows:
+            </p>
+            <pre class="code">
+                <!-- // four variables are created and assigned in a single go, br -->
+                <!-- // separated by commas -->
+                var myObj = new Object(),
+                    str = 'myString',
+                    rand = Math.random(),
+                    obj = new Object();
+                myObj.type              = 'Dot syntax';
+                myObj['date created']   = 'String with space';
+                myObj[str]              = 'String value';
+                myObj[rand]             = 'Random Number';
+                myObj[obj]              = 'Object';
+                myObj['']               = 'Even an empty string';console.log(myObj);
+            </pre>
+            <p>You can also access properties by using a string value that is stored in a variable:</p>
+            <pre class="code">var propertyName = 'make';
+                myCar[propertyName] = 'Ford';propertyName = 'model';
+                myCar[propertyName] = 'Mustang';
+            </pre>
+
+            <p>
+                You can use the bracket notation with for...in to iterate over all the enumerable properties of an object. To illustrate how this works, the following function displays the properties of the object when you pass the object and the object's name as arguments to the function:
+            </p>
+            <pre class="code">
+                function showProps(obj, objName) {
+                    var result = ``;
+                    for (var i in obj) {
+                      // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain
+                      if (obj.hasOwnProperty(i)) {
+                        result += `${objName}.${i} = ${obj[i]}\n`;
+                      }
+                    }
+                    return result;
+                  }
+            </pre>
+            <p>
+                So, the function call showProps(myCar, "myCar") would return the following:
+            </p>
+            <pre class="code">
+                myCar.make = Ford
+                myCar.model = Mustang
+                myCar.year = 1969
+            </pre>
+            <h3>Creating Objects In JavaScript :</h3>
+            <h4>Create JavaScript Object with Object Literal</h4>
+            <p>One of easiest way to create a javascript object is object literal, simply define the property and values inside curly braces as shown below</p>
+            <pre class="code">
+                let bike = {name: 'SuperSport', maker:'Ducati', engine:'937cc'};
+            </pre>
+            <h4>Create JavaScript Object with Constructor</h4>
+            <p>Constructor is nothing but a function and with help of new keyword, constructor function allows to create multiple objects of same flavor as shown below</p>
+            <pre class="code">
+                function Vehicle(name, maker) {
+                    this.name = name;
+                    this.maker = maker;
+                 }
+                 let car1 = new Vehicle('Fiesta', 'Ford');
+                 let car2 = new Vehicle('Santa Fe', 'Hyundai')
+                 console.log(car1.name);    //Output: Fiesta
+                 console.log(car2.name);    //Output: Santa Fe
+            </pre>
+            <h4>Using the JavaScript Keyword new</h4>
+            <pre>The following example also creates a new JavaScript object with four properties:
+                Example
+            </pre>
+            <pre class="code">
+                var person = new Object();
+                person.firstName = “John”;
+                person.lastName = “Doe”;
+                person.age = 50;
+                person.eyeColor = “blue”;
+            </pre>
+            <h4>
+                Using the Object.create method
+            </h4>
+            <p>Objects can also be created using the Object.create() method. This method can be very useful, because it allows you to choose the prototype object for the object you want to create, without having to define a constructor function.</p>
+            <pre class="code">
+                // Animal properties and method encapsulation
+                var Animal = {
+                type: 'Invertebrates', // Default value of properties
+                displayType: function() {  // Method which will display type of Animal
+                    console.log(this.type);
+                }
+                };
+                // Create new animal type called animal1 
+                var animal1 = Object.create(Animal);
+                animal1.displayType(); // Output:Invertebrates
+                // Create new animal type called Fishes
+                var fish = Object.create(Animal);
+                fish.type = 'Fishes';
+                fish.displayType(); // Output:Fishes
+            </pre>
+
+        </div>
+    </div>
+
+    <script>
+        function task1(){
+            var ele=document.getElementById("task1");
+            ele.style.display="block"
+        }
+        function task2(){
+            var ele=document.getElementById("task2");
+            ele.style.display="block"
+        }
+    </script>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
